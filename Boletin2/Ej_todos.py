@@ -76,3 +76,5 @@ else:
     textoTrabajador_ej8='Meritorio'
 print(f'La puntuacion del trabajador es {puntuacionTrabajadorUsuario_ej8}({textoTrabajador_ej8}) y el dinero es {puntuacionTrabajadorUsuario_ej8*2400}')
 #ej9
+edadclienteUsuario_ej9=int(input('Introduce su edad:'))
+if
