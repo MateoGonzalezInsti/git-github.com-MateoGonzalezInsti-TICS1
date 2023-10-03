@@ -64,7 +64,9 @@ elif rentaUsuario_ej7>=35000 and rentaUsuario_ej7<=60000:
     impositivo_ej7=30
 elif rentaUsuario_ej7>60000:
     impositivo_ej7=45
-print(f'Segun su renta el impositivo es {impositivo}')
+else: 
+    impositivo_ej7=5
+print(f'Segun su renta el impositivo es {impositivo_ej7}')
 #ej8
 puntuacionTrabajadorUsuario_ej8=float('Introduce la puntuacion del trabajador:')
 textoTrabajador_ej8=str('Indefinido')
