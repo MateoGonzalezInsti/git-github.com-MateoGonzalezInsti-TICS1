@@ -1,4 +1,5 @@
 #adivina un numero aleatorio calculado por el pc con base de datos de jugadores. Acierta el numero sib morir y lo más rapido posible
+from os import system
 import random
 #funciones
 def getNumero(vidas,numAdivinar,intentos):#recibir numero usuario y comprobar resultado
@@ -31,6 +32,7 @@ terminarPrograma=False
 IniciadoPrograma=False
 datosJugadores=[]#0:nombre,1:puntuacion,2:vidas
 while terminarPrograma==False:#salir del programa?
+    system("cls")
     #cerrar programa?
     if IniciadoPrograma==False:
         IniciadoPrograma=True
@@ -64,6 +66,7 @@ while terminarPrograma==False:#salir del programa?
     while terminarGenerarPartidas==False and datosJugadores[puertoJugador][2]>0:#bucle partidas
         #continuar
         if primeraPartida==False:
+            system("cls")
             primeraPartida=True
         else:
             salir=str(input('Quieres salir? (y/n)'))
@@ -73,6 +76,7 @@ while terminarPrograma==False:#salir del programa?
         #numero random
         numeroRangoUsuario=int(input('Escribe el rango de numeros posibles: 1...'))
         numeroAdivinar=random.randint(1,numeroRangoUsuario)
+        system("cls")
         print('¡Recuerda la partida se termina cuando se te acaben las vidas o abandones!')
         #datos partida
         partidaGanada=False
@@ -94,5 +98,5 @@ while terminarPrograma==False:#salir del programa?
             datosJugadores[puertoJugador][2]+=int(1)
             print(f'Partida acabada. Intentos:{intentosPartida}, Vidas:{datosJugadores[puertoJugador][2]}')
         
-        
+system("cls")
 print('Programa finalizado...')
