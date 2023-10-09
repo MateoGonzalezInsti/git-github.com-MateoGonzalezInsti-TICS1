@@ -4,7 +4,7 @@ import random
 def getNumero(vidas,numAdivinar,intentos):#recibir numero usuario y comprobar resultado
     #interfad
     print(f'Vidas restantes {vidas}')
-    numeroUsuario=int(input('Escribe un numero:'))
+    numeroUsuario=int(input('    Escribe un numero:'))
     #comprobar numero
     if numAdivinar==numeroUsuario:#acierto
         print('¡Lo has acertado!')
@@ -43,7 +43,7 @@ while terminarPrograma==False:#salir del programa?
     print('Juego de adivinar un numero')
     listaJugadores(datosJugadores)
     print('Creando jugador...')
-    nombreUsuario=str(input('Escriba su nombre:'))
+    nombreUsuario=str(input('   Escriba su nombre:'))
     puertoJugador=int(-1)#importante(indice del array para acceder a los datos de guardado)
     for i in range(len(datosJugadores)):#encontrar si existen datos de guardado
         if datosJugadores[i][0]==nombreUsuario:
