@@ -2,6 +2,7 @@
 from os import system
 import random
 #funciones
+
 def getNumero(vidas,numAdivinar,intentos):#recibir numero usuario y comprobar resultado
     #interfad
     print(f'Vidas restantes {vidas}')
