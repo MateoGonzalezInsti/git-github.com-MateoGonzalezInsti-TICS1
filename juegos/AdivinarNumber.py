@@ -2,7 +2,17 @@
 from os import system
 import random
 #funciones
+def getDatos():
+    with  open('juegos/BaseDatos.txt','r') as file:
+        datos=""
+        for line in file:
+            datos+=line
+        return datos
 
+def setdatos(datos):
+    with open("juegos/BaseDatos.txt","w") as file:
+        file.write(str(datos))
+    
 def getNumero(vidas,numAdivinar,intentos):#recibir numero usuario y comprobar resultado
     #interfad
     print(f'Vidas restantes {vidas}')
@@ -31,7 +41,7 @@ def listaJugadores(lista):
         print(' Ninguna partida guardada')
 terminarPrograma=False
 IniciadoPrograma=False
-datosJugadores=[]#0:nombre,1:puntuacion,2:vidas
+datosJugadores=getDatos()#0:nombre,1:puntuacion,2:vidas
 while terminarPrograma==False:#salir del programa?
     system("cls")
     #cerrar programa?
@@ -61,6 +71,7 @@ while terminarPrograma==False:#salir del programa?
         if datosJugadores[puertoJugador][2]<=0:#no tiene vidas
             #reiniciar datos del jugador
             datosJugadores[puertoJugador]=valoresDefectoCuenta#valores por defecto
+    setdatos(datosJugadores)
     #generar partidas
     terminarGenerarPartidas=False
     primeraPartida=False
@@ -70,6 +81,7 @@ while terminarPrograma==False:#salir del programa?
             system("cls")
             primeraPartida=True
         else:
+            setdatos(datosJugadores)
             salir=str(input('Quieres salir? (y/n)'))
             if salir=='y':
                 terminarGenerarPartidas=True
