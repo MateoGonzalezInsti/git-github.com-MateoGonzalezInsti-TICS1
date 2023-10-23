@@ -1,13 +1,20 @@
 #adivina un numero aleatorio calculado por el pc con base de datos de jugadores. Acierta el numero sib morir y lo más rapido posible
-from os import system
+from os import system,path
 import random
 #funciones
 def getDatos():
-    with  open('juegos/BaseDatos.txt','r') as file:
-        datos=""
-        for line in file:
-            datos+=line
-        return datos
+    if path.exists('juegos/BaseDatos.txt'):
+        with  open('juegos/BaseDatos.txt','r') as file:
+            datos=""
+            for line in file:
+                datos+=line
+            #transformar datos
+            datostransformados=datos.replace("[", "")
+            datostransformados.split(']')
+            datostransformados.pop()
+            print('datos:',datos)
+    else :
+        setdatos('')
 
 def setdatos(datos):
     with open("juegos/BaseDatos.txt","w") as file:
@@ -42,6 +49,8 @@ def listaJugadores(lista):
 terminarPrograma=False
 IniciadoPrograma=False
 datosJugadores=getDatos()#0:nombre,1:puntuacion,2:vidas
+if datosJugadores=='':
+    datosJugadores=[]
 while terminarPrograma==False:#salir del programa?
     system("cls")
     #cerrar programa?
