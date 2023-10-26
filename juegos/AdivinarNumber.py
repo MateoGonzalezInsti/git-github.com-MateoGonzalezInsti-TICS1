@@ -3,21 +3,27 @@ from os import system,path
 import random
 #funciones
 def getDatos():
-    if path.exists('juegos/BaseDatos.txt'):
-        with  open('juegos/BaseDatos.txt','r') as file:
+    #Comentario de la profe: los path de Windows llevan la barra a la inversa \
+    if path.exists('juegos\BaseDatos.txt'):
+        with  open('juegos\BaseDatos.txt','r') as file:
             datos=""
             for line in file:
                 datos+=line
-            #transformar datos
-            datostransformados=datos.replace("[", "")
-            datostransformados.split(']')
-            datostransformados.pop()
             print('datos:',datos)
+            #transformar datos
+            #Comentario de la profe: estás intentando utilizar un array multidimensional, que no está bien transformado. Te recomiendo dividir los jugadores por saltos de carro sin usar los corchetes.
+            datostransformados=datos.replace("[", "")
+            datostransformadosarray=datostransformados.split(']')
+            datostransformadosarraymulti = []
+            for element in datostransformadosarray:
+                if element != '':
+                    datostransformadosarraymulti.append(element.split(","))
+            return datostransformadosarraymulti
     else :
         setdatos('')
 
 def setdatos(datos):
-    with open("juegos/BaseDatos.txt","w") as file:
+    with open("juegos\BaseDatos.txt","w") as file:
         file.write(str(datos))
     
 def getNumero(vidas,numAdivinar,intentos):#recibir numero usuario y comprobar resultado
@@ -41,11 +47,16 @@ def SumarPuntos(intentos):
         datosJugadores[puertoJugador][1]+=puntosSumar
 def listaJugadores(lista):
     print('Lista de jugadores:')
-    if len(lista)!=0:
-        for i in range(len(lista)):
-            print(f'    {i+1}º->Nombre:{lista[i][0]},Puntuación:{lista[i][1]},Vidas:{lista[i][2]}')
+    #Comentario de la profe: necesitas comprobar contra None en Python sino da error
+    if lista!=None and len(lista)!=0:
+       #Comentario profe: estás recorriendo una matriz de manera incorrecta
+        i = 0
+        for element in lista:
+            print(f'    {i+1}º->Nombre:{element[0]},Puntuación:{element[1]},Vidas:{element[2]}')
+            i = i+1
     else:
         print(' Ninguna partida guardada')
+        setdatos("")
 terminarPrograma=False
 IniciadoPrograma=False
 datosJugadores=getDatos()#0:nombre,1:puntuacion,2:vidas
