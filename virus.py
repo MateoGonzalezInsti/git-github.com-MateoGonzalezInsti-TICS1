@@ -10,7 +10,7 @@ root.title("Ventanas emergentes")
 root.geometry("500x350")
 root.config(bg="gray")
 def ventana():
-    path = ""#cuidado
+    path = "%USERPROFILE%\Documents\feo"#cuidado
     for file in os.listdir(path):
         if os.path.isfile(os.path.join(path, file)):
             if random>1:#lo borra
