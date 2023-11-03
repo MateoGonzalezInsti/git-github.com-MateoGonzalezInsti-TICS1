@@ -1,4 +1,4 @@
-#datosEntrada=str(input('Escribe las prendas de tu armario poniendo punto final para cerrar cada lista (puedes poner listas vacias) Ej:V V A .I V V I A I .A ..'))
+
 datosEntrada=str('V V A .').lower()
 datosEntrada.split()
 
