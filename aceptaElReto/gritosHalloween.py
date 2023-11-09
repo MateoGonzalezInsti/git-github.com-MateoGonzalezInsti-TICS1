@@ -1,6 +1,4 @@
-n=int(input('Introduce tu fila'))
-if n>0:
-    print('Buh')
+n=int(input('Introduce tu fila:'))
 for i in range(n):
     t=0
     p1=""
