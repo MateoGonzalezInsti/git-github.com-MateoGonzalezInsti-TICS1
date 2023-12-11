@@ -1,5 +1,6 @@
 from os import path
-def getDatos(dni):
+def getDatos():
+    dni=str(input('Introduzca un DNI: '))
     if path.exists('traballo\BaseDatos.txt'):
             with  open('traballo\BaseDatos.txt','r') as file:
                 datos=""
@@ -19,4 +20,4 @@ def setdatos(datos):
     with open("traballo\BaseDatos.txt","w") as file:
         file.write(str(datos))
         
-getDatos('11')
+getDatos()
