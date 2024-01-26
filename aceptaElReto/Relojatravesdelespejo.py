@@ -5,7 +5,8 @@ entrada = input(
 )
 hora = datetime.datetime.strptime(entrada, "%H:%M").time()
 horaEspejo = hora
-horaEspejo = horaEspejo.replace(hour=12 - horaEspejo.hour)
+if horaEspejo.hour!=12:
+    horaEspejo = horaEspejo.replace(hour=12 - horaEspejo.hour)
 if hora.minute != 0:
     horaEspejo = horaEspejo.replace(minute=(60 - horaEspejo.minute))
     horaEspejo = horaEspejo.replace(hour=horaEspejo.hour - 1)
