@@ -1,0 +1,84 @@
+{
+    "veces_jugado":0,
+    "tiempo_jugando":0,
+
+    "promedio_total_mejor_racha_partida":0,
+    "promedio_total_puntuacion_partida":0,
+
+    "aciertos_totales":0,
+    "fallos_totales":0,
+
+    "mejor_racha":0,
+    "mejor_puntuacion":0,
+    "mas_aciertos":0,
+
+    "mejor_hoy_puntos":0,
+    "mejor_hoy_mejor_racha":0,
+    "mejor_hoy_tiempo_total":0,
+    "mejor_hoy_hora_partida":"00:00",
+
+    "mejor_semana_puntos":0,
+    "mejor_semana_mejor_racha":0,
+    "mejor_semana_tiempo_total":0,
+    "mejor_semana_hora_partida":"00:00",
+    
+    "mejor_mes_puntos":0,
+    "mejor_mes_mejor_racha":0,
+    "mejor_mes_tiempo_total":0,
+    "mejor_mes_hora_partida":"00:00",
+
+    "mejor_año_puntos":0,
+    "mejor_año_mejor_racha":0,
+    "mejor_año_tiempo_total":0,
+    "mejor_año_hora_partida":"00:00",
+
+    "puesto1_puntos":0,
+    "puesto1_mejor_racha":0,
+    "puesto1_tiempo_total":0,
+    "puesto1_hora_partida":"00:00",
+
+    "puesto2_puntos":0,
+    "puesto2_mejor_racha":0,
+    "puesto2_tiempo_total":0,
+    "puesto2_hora_partida":"00:00",
+    
+    "puesto3_puntos":0,
+    "puesto3_mejor_racha":0,
+    "puesto3_tiempo_total":0,
+    "puesto3_hora_partida":"00:00",
+
+    "puesto4_puntos":0,
+    "puesto4_mejor_racha":0,
+    "puesto4_tiempo_total":0,
+    "puesto4_hora_partida":"00:00",
+
+    "puesto5_puntos":0,
+    "puesto5_mejor_racha":0,
+    "puesto5_tiempo_total":0,
+    "puesto5_hora_partida":"00:00",
+
+    "puesto6_puntos":0,
+    "puesto6_mejor_racha":0,
+    "puesto6_tiempo_total":0,
+    "puesto6_hora_partida":"00:00",
+
+    "puesto7_puntos":0,
+    "puesto7_mejor_racha":0,
+    "puesto7_tiempo_total":0,
+    "puesto7_hora_partida":"00:00",
+
+    "puesto8_puntos":0,
+    "puesto8_mejor_racha":0,
+    "puesto8_tiempo_total":0,
+    "puesto8_hora_partida":"00:00",
+
+    "puesto9_puntos":0,
+    "puesto9_mejor_racha":0,
+    "puesto9_tiempo_total":0,
+    "puesto9_hora_partida":"00:00",
+
+    "puesto10_puntos":0,
+    "puesto10_mejor_racha":0,
+    "puesto10_tiempo_total":0,
+    "puesto10_hora_partida":"00:00"
+}
