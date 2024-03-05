@@ -107,20 +107,28 @@ def ColisionFoodSnake():
         SegmentosCuerpo()
         ActualizarPuntuacion(10)
 
-def ActualizarPuntuacion(sumar=0):
+def ActualizarPuntuacion(sumar=0,reiniciar=False):
     global score
     global high_score
-    score=score+sumar
-    if score>high_score:
-        high_score=score
+    
+    if not reiniciar:
+        score=score+sumar
+        if score>high_score:
+            high_score=score
+    else:
+        score=0
+        
     textScore.clear()
     textScore.write(f'Score {score} / High Score {high_score}',align='center',font=('Impact',22))
-
+    
 def ColisionVentana():
     mitadAnchoPantalla=window_width/2
     mitadAltoPantalla=window_height/2
     ox=head.xcor()
     oy=head.ycor()
+    for i in segmentos_cuerpo:
+        ox=i.xcor()
+        oy=i.ycor()
     tiempoDelay=0.5
     #cambios de posicion, segun el eje en el que salga moverlo para el borde contrario -20
     if ox>mitadAnchoPantalla:
@@ -159,6 +167,7 @@ def SegmentosCuerpo():
     nuevo_segmento.color("green")
     nuevo_segmento.penup()
     segmentos_cuerpo.append(nuevo_segmento)
+    
     movBody()
 
 def movBody():
@@ -171,12 +180,25 @@ def movBody():
         ox=head.xcor()
         oy=head.ycor()
         segmentos_cuerpo[0].goto(ox,oy)
-        
+        mov()
+      
+def colisionSnakeBody():
+    for segmento in segmentos_cuerpo:
+        if segmento.distance(head)<10:#fin partida
+            time.sleep(1)
+            head.goto(0,0)
+            head.direction="stop"
+            for segmento1 in segmentos_cuerpo:
+                segmento1.goto(window_width+60,window_height+60)
+            segmentos_cuerpo.clear()
+            ActualizarPuntuacion(0,True)
+            
 #controlador/ejecutador
 while True:
     window.update()
     ColisionVentana()
     ColisionFoodSnake()
+    colisionSnakeBody()
     mov()
     movBody()
     time.sleep(delay)
