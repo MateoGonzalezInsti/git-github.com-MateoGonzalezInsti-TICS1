@@ -1,3 +1,4 @@
+
 # datos sistema
 SistemaProduccionCodigosNombres = {
     "0": "PRODUCCIÓN ECOLÓGICA",
@@ -7,17 +8,17 @@ SistemaProduccionCodigosNombres = {
 }
 PaisProducciónAbreviaturasNombreCompleto = {
     "ES": "ESPAÑA",
-    'DE':'ALEMANIA',
-    'BE':'BELGICA',
-    'HR':'CROACIA'
-    }
+    "DE": "ALEMANIA",
+    "BE": "BELGICA",
+    "HR": "CROACIA",
+}
 ProvinciaProducciónCodigoNombre = {"31": "SIN PONER"}
 MunicipioProducciónCodigoNombre = {"050": "SIN PONER"}
 GranjaProducciónCodigoNombre = {"374": "SIN PONER"}
 
 
 # funciones mediante codigo
-def SistemaProduccion(digito):  # 1digito
+def SistemaProduccion(digito=""):  # 1digito
     devolver = SistemaProduccionCodigosNombres[digito]
     if type(devolver) == str:
         return devolver
@@ -25,7 +26,7 @@ def SistemaProduccion(digito):  # 1digito
         return "NO IDENTIFICADO"
 
 
-def PaisProducción(digitos):  # 2digitos
+def PaisProducción(digitos=""):  # 2digitos
     devolver = PaisProducciónAbreviaturasNombreCompleto[digitos]
     if type(devolver) == str:
         return devolver
@@ -33,24 +34,24 @@ def PaisProducción(digitos):  # 2digitos
         return "NO IDENTIFICADO"
 
 
-def ProvinciaProducción(digitos):  # 2digitos
-    devolver = PaisProducciónAbreviaturasNombreCompleto[digitos]
+def ProvinciaProducción(digitos=""):  # 2digitos
+    devolver = ProvinciaProducciónCodigoNombre[digitos]
     if type(devolver) == str:
         return devolver
     else:
         return "NO IDENTIFICADO"
 
 
-def MunicipioProducción(digitos):  # 3digitos
-    devolver = PaisProducciónAbreviaturasNombreCompleto[digitos]
+def MunicipioProducción(digitos=""):  # 3digitos
+    devolver = MunicipioProducciónCodigoNombre.get(digitos)
     if type(devolver) == str:
         return devolver
     else:
         return "NO IDENTIFICADO"
 
 
-def GranjaProcedenciaProducción(digitos):  # digitos sobrantes
-    devolver = PaisProducciónAbreviaturasNombreCompleto[digitos]
+def GranjaProcedenciaProducción(digitos=""):  # digitos sobrantes
+    devolver = GranjaProducciónCodigoNombre.get(digitos)
     if type(devolver) == str:
         return devolver
     else:
@@ -66,16 +67,17 @@ def BuscarDatosCodigo(codigo):
     datos.append(MunicipioProducción((codigo[5] + codigo[6] + codigo[7])))  # municipio
     # granja procedencia
     codigoGranja = ""
-    for i in range(7, len(codigo)):
+    for i in range(8, len(codigo)):
         codigoGranja = codigoGranja + codigo[i]
     datos.append(GranjaProcedenciaProducción(codigoGranja))
-    #mostrar datos
-    print('*Datos conseguidos del codigo')
-    print(f'Sistema de produccion:${datos[0]}')
-    print(f'Pais:${datos[1]}')
-    print(f'Provincia:${datos[2]}')
-    print(f'Municipio:${datos[3]}')
-    print(f'Granja de procedencia:${datos[4]}')
+    # mostrar datos
+    print(f"*Datos conseguidos del codigo ({codigo})")
+    print(f"Sistema de produccion:{datos[0]}")
+    print(f"Pais:{datos[1]}")
+    print(f"Provincia:{datos[2]}")
+    print(f"Municipio:{datos[3]}")
+    print(f"Granja de procedencia:{datos[4]}")
+
 
 # recibir datos usuario
 while True:
@@ -87,12 +89,10 @@ while True:
             )
         )
         if queHacer == 1:  # buscar datos codigo
-            codigoHuevil = (
-                str(input("Codigo del huevo: "))
-            )
-            codigoHuevil=codigoHuevil.replace(" ", "")
-            codigoHuevil=codigoHuevil.upper()
-            separado=[x for x in codigoHuevil]
+            codigoHuevil = str(input("Codigo del huevo: "))
+            codigoHuevil = codigoHuevil.replace(" ", "")
+            codigoHuevil = codigoHuevil.upper()
+            separado = [x for x in codigoHuevil]
             BuscarDatosCodigo(separado)
         elif queHacer == 2:  # encontrar codigo
             print("encontrar codigo(Sin programar)")
