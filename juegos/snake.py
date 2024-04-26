@@ -9,14 +9,14 @@ delay = 0.15#tiempo espera moverse
 segmentos_cuerpo=[]
 score=0
 high_score=0
-color_fondo='#29dc4f'
+COLOR_FONDO='#29dc4f'
 lista_manzanas=[]
 
 window = turtle.Screen()#ventana
 # ajustes ventana
 window.title("Juego Snake Python-By Mateo González")#titulo ventana
 window.setup(width=window_width, height=window_height)#tamaño ventana
-window.bgcolor(color_fondo)#color fondo
+window.bgcolor(COLOR_FONDO)#color fondo
 
 # snake objeto
 headSnake = turtle.Turtle()#objeto snake
@@ -40,13 +40,13 @@ food.goto(100, 0)
 food2 = turtle.Turtle()#objeto comida
 food2.speed(0)#se mueve al instante(sin animacion)
 food2.shape("circle")
-food2.color(color_fondo)
+food2.color(COLOR_FONDO)
 food2.penup()
 food2.goto(-100, 0)
 
 #score objeto texto
 textScore=turtle.Turtle()
-textScore.color(color_fondo)
+textScore.color(COLOR_FONDO)
 textScore.penup()
 textScore.hideturtle()#sconder raton
 textScore.goto(0,255)
@@ -68,7 +68,7 @@ def MostrarHUD():
         textScore.clear()#limpiar texto
         textScore.write(f'Score {score} / High Score {high_score}',align='center',font=('Impact',22))
     else:
-        textScore.color(color_fondo)
+        textScore.color(COLOR_FONDO)
         textScore.clear()#limpiar texto
 
 def movimientoHeadSnake():
