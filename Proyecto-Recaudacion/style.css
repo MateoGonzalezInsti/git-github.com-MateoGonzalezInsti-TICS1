@@ -1,0 +1,27 @@
+/*fuentes de texto*/
+
+/*pagina*/
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    background-color: aliceblue;
+}
+
+.img-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0.4;
+    background-image: url('./img/fondo.jpg');
+    background-size: 100% 100%;
+}
+
+header {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+}
